@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DocSyncer Pro</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+    <h2>DocSyncer Pro</h2>
+    <button id="insertText">درج متن آزمایشی</button>
+    <script>
+        Office.onReady(function() {
+            document.getElementById("insertText").onclick = function () {
+                Word.run(function (context) {
+                    const range = context.document.getSelection();
+                    range.insertText("این متن از افزونه DocSyncer Pro درج شد!", "Replace");
+                    return context.sync();
+                });
+            };
+        });
+    </script>
+</body>
+</html>
